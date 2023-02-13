@@ -21,6 +21,13 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+   """
+    INPUT:
+    raw dataframe 
+    
+    OUTPUT:
+    cleaned data frame with relevant information
+    """
 # create a dataframe of the 36 individual category columns
     categories = df.categories.str.split(pat=';', expand = True)
 # select the first row of the categories dataframe
@@ -51,6 +58,9 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
+    """
+    w save the data into the selected datbase to refrence later.
+    """
    engine = create_engine('sqlite:///'+ database_filename)
    df.to_sql('DisasterResponse', engine, if_exists='replace',index=False)
    df.dtypes 

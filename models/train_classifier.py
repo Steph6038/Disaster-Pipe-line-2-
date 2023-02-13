@@ -28,7 +28,7 @@ def load_data(database_filepath):
     X = df['message']
     Y = df.iloc[:,4:]
     print(Y.dtypes)
-    #print(Y.head())
+    
     
     return X, Y, Y.columns
 
@@ -78,6 +78,9 @@ def build_model():
    
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+    evaluate the model performance and print the results of the model'
+    """
     #y_pred    = pipeline.predict(X_test)
     y_pred = model.predict(X_test)
     i=0
@@ -91,6 +94,9 @@ def evaluate_model(model, X_test, Y_test, category_names):
    
 
 def save_model(model, model_filepath):
+    """
+    saving the model into a pickle file.
+    """
     with open (model_filepath, 'wb') as f:
         pickle.dump(model, f)
 
