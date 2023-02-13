@@ -42,8 +42,8 @@ def clean_data(df):
     df = pd.concat([df, categories], axis =1)
 # drop duplicates
     df = df.drop_duplicates()
-   
-    #df.related.replace(2,1,inplace=True)
+#replacing 2 with 1 in related category   
+    df.related.replace(2,1,inplace=True)
     print(column)
     print(categories[column].value_counts())
     return df
